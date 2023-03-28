@@ -18,5 +18,5 @@ location / {
 }
 server {
     server_name api.store.rem029.com;
-    listen 81;   
+    listen 82;   
 }
