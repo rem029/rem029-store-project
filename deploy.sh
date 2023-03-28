@@ -1,5 +1,5 @@
 echo "Creating nginx if not existing"
-sudo cp -n /var/www/store.rem029.com/nginx/api /etc/nginx/sites-available/api
+sudo cp -n /var/www/store.rem029.com/nginx/store /etc/nginx/sites-available/store
 sudo cp -n /var/www/store.rem029.com/nginx/api.store /etc/nginx/sites-available/api.store
 
 echo "Linking nginx file"
