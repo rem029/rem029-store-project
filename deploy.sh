@@ -1,3 +1,20 @@
+echo "Creating nginx if not existing"
+sudo cp -n var/www/store.rem029.com/nginx/jds /etc/nginx/sites-available/jds
+sudo cp -n var/www/store.rem029.com/nginx/api.store /etc/nginx/sites-available/api.store
+
+echo "Linking nginx file"
+sudo ln -s /etc/nginx/sites-available/api.store
+sudo ln -s /etc/nginx/sites-available/store
+
+echo "Verify and restart nginx"
+sudo nginx -t
+nginx -s reload
+systemctl restart nginx
+
+echo "Run certbot"
+certbot --nginx -d store.rem029.com --redirect --agree-tos --non-interactive
+certbot --nginx -d api.store.rem029.com --redirect --agree-tos --non-interactive
+
 echo "Update packages"
 yarn run bootstrap
 
@@ -16,13 +33,3 @@ pm2 reload store-add-issue-every-12hr
 
 echo "PM2 Update"
 pm2 update
-
-echo "Add nginx steps"
-
-echo "Create nginx file"
-
-echo "Link nginx file"
-
-echo "Verify and restart nginx"
-
-echo "Run certbot"
