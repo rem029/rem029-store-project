@@ -1,8 +1,9 @@
-echo "***Creating nginx if not existing"
+echo "***Creating nginx files if not existing"
 sudo cp -n /var/www/store.rem029.com/nginx/store /etc/nginx/sites-available/store
 sudo cp -n /var/www/store.rem029.com/nginx/api.store /etc/nginx/sites-available/api.store
+sudo cp -n /var/www/store.rem029.com/nginx/store-backend-upstream.conf /etc/nginx/conf.d/store-backend-upstream.conf
 
-echo "***Linking nginx file"
+echo "***Linking nginx files"
 cd /etc/nginx/sites-enabled/
 sudo ln -s /etc/nginx/sites-available/api.store
 sudo ln -s /etc/nginx/sites-available/store
