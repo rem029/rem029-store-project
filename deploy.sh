@@ -1,10 +1,12 @@
 echo "Creating nginx if not existing"
-sudo cp -n var/www/store.rem029.com/nginx/jds /etc/nginx/sites-available/jds
-sudo cp -n var/www/store.rem029.com/nginx/api.store /etc/nginx/sites-available/api.store
+sudo cp -n /var/www/store.rem029.com/nginx/api /etc/nginx/sites-available/api
+sudo cp -n /var/www/store.rem029.com/nginx/api.store /etc/nginx/sites-available/api.store
 
 echo "Linking nginx file"
+cd /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/api.store
 sudo ln -s /etc/nginx/sites-available/store
+cd /var/www/store.rem029.com/
 
 echo "Verify and restart nginx"
 sudo nginx -t
